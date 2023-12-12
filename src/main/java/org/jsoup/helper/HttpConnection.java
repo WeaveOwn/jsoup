@@ -1030,7 +1030,7 @@ public class HttpConnection implements Connection {
             conn.setRequestMethod(req.method().name());
             conn.setInstanceFollowRedirects(false); // don't rely on native redirection support
             conn.setConnectTimeout(req.timeout());
-            conn.setReadTimeout(req.timeout() / 2); // gets reduced after connection is made and status is read
+            conn.setReadTimeout(req.timeout()); // gets reduced after connection is made and status is read
 
             if (req.sslSocketFactory() != null && conn instanceof HttpsURLConnection)
                 ((HttpsURLConnection) conn).setSSLSocketFactory(req.sslSocketFactory());
